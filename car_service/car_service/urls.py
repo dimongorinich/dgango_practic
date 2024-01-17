@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('apiservice.urls')),
+    path('apiservice/', include('apiservice.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
