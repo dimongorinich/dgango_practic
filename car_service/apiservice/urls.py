@@ -7,8 +7,10 @@ from .views import (ServiceDetailsView,
 
 app_name = "apiservice"
 
+routers = DefaultRouter()
+routers.register("services", ServiceViewSet)
 
 urlpatterns = [
     path("service/<int:pk>/", ServiceDetailsView.as_view(), name="service-detail"),
-    path("api/service/", ServiceViewSet.as_view(), name="api-service"),
+    path("api/", include(routers.urls)),
 ]
