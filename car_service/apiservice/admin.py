@@ -26,11 +26,11 @@ class ServiceAdmin(admin.ModelAdmin):
         mark_unarchived,
     ]
 
-    list_display = "pk", "name", "description_short", "archived"
-    list_display_links = "pk", "name"
+    list_display = "pk", "name", "description_short", "preview", "archived"
+    list_display_links = "pk", "name",
     fieldsets = [
         (None, {
-            "fields": ("name", "description"),
+            "fields": ("name", "description", "preview"),
         }),
         ("Extra options", {
             "fields": ("archived",),
