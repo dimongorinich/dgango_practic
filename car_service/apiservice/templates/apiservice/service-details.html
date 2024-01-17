@@ -1,0 +1,27 @@
+{% extends 'apiservice/base.html' %}
+
+{% block title %}
+  Service #{{ service.pk }}
+{% endblock %}
+
+{% block body %}
+  <h1>Service <strong>{{ service.name }}</strong></h1>
+  <div>
+    <div>Description: <em>{{ service.description }}</em></div>
+    <div>Archived: {{ product.archived }}</div>
+
+    {% if service.preview %}
+      <img src="{{ service.preview.url }}" alt="{{ service.preview.name }}">
+    {% endif %}
+
+  </div>
+{#  <div>#}
+{#    <a href="{% url 'apiservice:service_update' pk=product.pk %}">Update product</a>#}
+{#  </div>#}
+{#  <div>#}
+{#    <a href="{% url 'apiservice:service_delete' pk=product.pk %}">Archive product</a>#}
+{#  </div>#}
+{#  <div>#}
+{#    <a href="{% url 'apiservice:services_list' %}">Back to products list</a>#}
+{#  </div>#}
+{% endblock %}

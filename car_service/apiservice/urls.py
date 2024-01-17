@@ -1,5 +1,10 @@
 from django.urls import path
 
-from . import views
+from .views import ServiceDetailsView
 
-urlpatterns = []
+
+app_name = "apiservice"
+
+urlpatterns = [
+    path("service/<int:pk>/", ServiceDetailsView.as_view(), name="service-detail")
+]

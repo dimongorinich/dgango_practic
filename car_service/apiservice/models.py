@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -14,3 +15,9 @@ class Service(models.Model):
     description = models.TextField()
     archived = models.BooleanField(default=False)
     preview = models.ImageField(null=True, blank=False, upload_to=service_preview_directory_path)
+
+    def __str__(self):
+        return f"{self.name}"
+
+    def get_absolute_url(self):
+        return reverse('apiservice:service-detail', kwargs={'pk': self.pk})
