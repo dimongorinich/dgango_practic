@@ -1,9 +1,10 @@
+from django import forms
 from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest
 from django.urls import path
 
-from .models import Service
+from .models import Service, Category, SubCategory
 
 
 # Register your models here.
@@ -43,3 +44,15 @@ class ServiceAdmin(admin.ModelAdmin):
         if len(obj.description) < 48:
             return obj.description
         return obj.description[:48] + "..."
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = "name_category", "preview"
+    list_display_links = "name_category",
+
+
+@admin.register(SubCategory)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = "name_subcategory", "preview"
+    list_display_links = "name_subcategory",
